@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #eef2f7;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+/* TITLE */
+h2 {
+    margin-top: 50px;
+}
+
+.top-bar {
+    background: #eee;
+    margin: 15px;
+    padding: 12px 15px;
+    border-radius: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: black;
+    font-weight: bold;
+}
+
+.check {
+    background: orange;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-size: 14px;
+}
+
+/* GRID 3 KOLom */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 50px;
+}
+
+/* CARD */
+.card {
+    border: 2px solid #00ff99;
+    border-radius: 20px;
+    padding: 15px;
+    transition: 0.3s;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ini bikin tengah secara vertikal */
+    align-items: center;     /* ini tengah horizontal */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border-color: orange;
+}
+
+/* FOTO */
+.foto {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.person img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.person span {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #ddd;
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: orange;
+    color: white;
+}
+
+.pilih {
+    background: orange;
+    color: white;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.7);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 400px;
+}

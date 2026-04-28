@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>E-Voting OSIS & MPK</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    * {
+body {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -15,7 +7,7 @@
 
     body {
       height: 100vh;
-      background: linear-gradient(135deg, #6ec1e4, #8e7cc3);
+      background: #eef2f7;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -82,35 +74,3 @@
       margin-top: 10px;
       color: gray;
     }
-  </style>
-</head>
-
-<body>
-
-  <div class="container">
-
-  
-    <div class="welcome-box">
-      <h3>E-Voting OSIS & MPK</h3>
-      <p>Selamat Datang!<br>Silakan login untuk memulai voting.</p>
-      <br>
-      <a href="#login">Login</a>
-    </div>
-
-    <div class="login-card" id="login">
-      <h4>Login </h4>
-
-      <form>
-        <input type="text" placeholder="Username" required>
-        <input type="password" placeholder="Password" required>
-
-        <button type="submit">Login</button>
-      </form>
-
-      <div class="small-text">Can't access login</div>
-    </div>
-
-  </div>
-
-</body>
-</html>
