@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voting OSIS MPK</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0c70f2;
+}
+
+.header {
+    background: linear-gradient(#e70909, #1f6fa5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.tabs button {
+    background: none;
+    border: none;
+    color: white;
+    margin: 0 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.selector {
+    background: #eee;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selector span {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.check {
+    background: orange;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    padding: 10px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+}
+
+.select-btn {
+    margin-top: 10px;
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+}
+
+.select-btn.active {
+    background: orange;
+    color: white;
+}
+
+.footer {
+    background: #eee;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.footer h2 {
+    color: #2c82c9;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px;
+}
+
+.actions button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cancel {
+    background: orange;
+    color: white;
+}
+
+.confirm {
+    background: orange;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Student Council</h2>
+    <div class="tabs">
+        <button onclick="showTab('osis')">Dashboard</button>
+        <button onclick="showTab('mpk')">MPK</button>
+    </div>
+</div>
+
+<div class="selector">
+    <span id="title">OSIS</span>
+    <div class="check">✔</div>
+</div>
+
+<div class="container" id="content">
+
+    <div class="card osis">
+        <img src="kandidat.png">
+        <h3>Hugo</h3>
+        <p>Visi: Menjadikan OSIS aktif & kreatif</p>
+        <p>Misi: Menjadikan OSIS aktif & kreatif</p>
+        <button class="select-btn" onclick="selectCandidate(this, 'Hugo')">Select</button>
+    </div>
+
+    <div class="card osis">
+        <img src="kandidat.png">
+        <h3>Andi</h3>
+        <p>Visi: OSIS disiplin & berprestasi</p>
+        <button class="select-btn" onclick="selectCandidate(this, 'Andi')">Select</button>
+    </div>
+
+    <div class="card mpk" style="display:none;">
+        <img src="https://via.placeholder.com/90">
+        <h3>Siti</h3>
+        <p>Visi: MPK transparan</p>
+        <button class="select-btn" onclick="selectCandidate(this, 'Siti')">Select</button>
+    </div>
+
+    <div class="card mpk" style="display:none;">
+        <img src="https://via.placeholder.com/90">
+        <h3>Rina</h3>
+        <p>Visi: MPK disiplin</p>
+        <button class="select-btn" onclick="selectCandidate(this, 'Rina')">Select</button>
+    </div>
+
+</div>
+
+<div class="footer">
+    <h2>Verify your Vote!</h2>
+    <p id="selected">Belum memilih</p>
+</div>
+
+<div class="actions">
+    <button class="cancel" onclick="resetVote()">Cancel</button>
+    <button class="confirm" onclick="confirmVote()">Confirm</button>
+</div>
+
+<script>
+let selectedName = "";
+
+function showTab(type) {
+    document.getElementById("title").innerText = type.toUpperCase();
+
+    document.querySelectorAll(".osis").forEach(el => {
+        el.style.display = (type === "osis") ? "block" : "none";
+    });
+
+    document.querySelectorAll(".mpk").forEach(el => {
+        el.style.display = (type === "mpk") ? "block" : "none";
+    });
+
+    resetVote();
+}
+
+function selectCandidate(btn, name) {
+    document.querySelectorAll(".select-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    selectedName = name;
+    document.getElementById("selected").innerText = "Pilihan: " + name;
+}
+
+function resetVote() {
+    selectedName = "";
+    document.getElementById("selected").innerText = "Belum memilih";
+    document.querySelectorAll(".select-btn").forEach(b => b.classList.remove("active"));
+}
+
+function confirmVote() {
+    if (!selectedName) {
+        alert("Pilih kandidat dulu!");
+        return;
+    }
+    alert("Vote untuk " + selectedName + " berhasil!");
+}
+</script>
+
+</body>
+</html>
